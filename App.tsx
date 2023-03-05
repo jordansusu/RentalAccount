@@ -30,7 +30,8 @@ import {
 
 import LogIn from './src/components/loginPage';
 import Home from './src/components/homePage';
-import SignIn from './src/components/signInPage';
+import SignUp from './src/components/signUpPage';
+import Start from './src/components/startPage';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -49,9 +50,12 @@ function App(): JSX.Element {
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
-        }}>
+        }}
+        // initialRouteName="StartRoute"
+      >
+        <Stack.Screen name="StartRoute" component={Start} />
         <Stack.Screen name="HomeRoute" component={Home} />
-        <Stack.Screen name="SignInRoute" component={SignIn} />
+        <Stack.Screen name="SignUpRoute" component={SignUp} />
         <Stack.Screen name="LogInRoute" component={LogIn} />
       </Stack.Navigator>
     </NavigationContainer>

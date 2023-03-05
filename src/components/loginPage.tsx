@@ -1,28 +1,26 @@
 import React from 'react';
-import { Text, View, StyleSheet, Button } from 'react-native';
+import { Text, SafeAreaView } from 'react-native';
+import themes from '../style/style';
+import InputField from '../share/inputField';
+import Btn from '../share/btn';
 
 const LogIn = ({navigation}) => {
+
+    const backToStart = () => {
+        navigation.navigate('StartRoute');
+    }
+
     return (
-        <View  style={styles.mainView}>
-            <Text style={styles.textView}> LogInPage </Text>
-            <Button
-                title="Back"
-                onPress={() => {navigation.navigate('HomeRoute')}}
+        <SafeAreaView  style={themes.flex_center}>
+            <Text style={themes.title_text}> Log In </Text>
+            <InputField placeholderText="Enter user name" />
+            <InputField placeholderText="Enter password" />
+            <Btn 
+                btnText="Back"
+                pressFunction={backToStart}
             />
-        </View>
+        </SafeAreaView>
     )
 }
-
-const styles = StyleSheet.create({
-    mainView: {
-      display: 'flex',
-      height: '100%',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    textView: {
-        color: 'black',
-    }
-});
 
 export default LogIn
